@@ -1,0 +1,47 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Dashboard</h2>
+    <form ACTION="{% url 'submit' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div>
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title" required><br><br>
+        </div>
+        <div>
+            <label for="image">Image:</label><br>
+            <input type="file" id="image" name="image" accept="image/*" required><br><br>
+        </div>
+        <div>
+            <label for="category">Category:</label><br>
+            <select id="category" name="category" required>
+                <option value="">Select Category</option>
+                <option value="Mental Health">Mental Health</option>
+                <option value="Heart Diseases">Heart Diseases</option>
+                <option value="Covid">Covid</option>
+                <option value="immunizatiion">immunizatiion</option>
+            </select><br><br>
+        </div>
+        <div>
+            <label for="summary">Summary:</label><br>
+            <textarea id="summary" name="summary" rows="4" cols="50" required></textarea><br><br>
+        </div>
+        <div>
+            <label for="content">Content:</label><br>
+            <textarea id="content" name="content" rows="8" cols="50" required></textarea><br><br>
+        </div>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+
+
+</body>
+</html>
